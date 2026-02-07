@@ -1,0 +1,26 @@
+# Xcode user-specific data
+xcuserdata/
+*.xcuserstate
+
+# macOS
+.DS_Store
+
+# Build artifacts
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcode workspace settings (optional, but commonly ignored)
+*.xcworkspace/xcuserdata/
+
+# Archives
+*.xcarchive
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# DMG build artifacts
+*.dmg
