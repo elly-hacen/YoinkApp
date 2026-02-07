@@ -29,10 +29,29 @@ jobs:
           mkdir -p dmg_contents
           cp -R build/Build/Products/Release/YoinkApp.app dmg_contents/
           ln -s /Applications dmg_contents/Applications
+
+          # Create a read-write DMG first so we can set the volume icon
           hdiutil create -volname "Yoink" \
             -srcfolder dmg_contents \
-            -ov -format UDZO \
-            Yoink.dmg
+            -ov -format UDRW \
+            Yoink_rw.dmg
+
+          # Mount the read-write DMG
+          hdiutil attach Yoink_rw.dmg -mountpoint /Volumes/Yoink
+
+          # Copy the app icon as the volume icon
+          cp build/Build/Products/Release/YoinkApp.app/Contents/Resources/AppIcon.icns \
+            /Volumes/Yoink/.VolumeIcon.icns
+
+          # Set the custom icon flag on the volume
+          SetFile -a C /Volumes/Yoink
+
+          # Unmount
+          hdiutil detach /Volumes/Yoink
+
+          # Convert to compressed read-only DMG
+          hdiutil convert Yoink_rw.dmg -format UDZO -o Yoink.dmg
+          rm Yoink_rw.dmg
 
       - name: Create Release
         env:
