@@ -59,7 +59,7 @@ Requires Xcode and macOS.
 
 1. Clone the repository
    ```
-   git clone [https://github.com/alihassan/YoinkApp.git](https://github.com/elly-hacen/YoinkApp.git)
+   git clone https://github.com/elly-hacen/YoinkApp.git
    ```
 2. Open `YoinkApp.xcodeproj` in Xcode
 3. Select the **YoinkApp** scheme and build (Cmd+B)
