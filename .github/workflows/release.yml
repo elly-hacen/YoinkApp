@@ -24,6 +24,9 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO
 
+      - name: Install fileicon
+        run: brew install fileicon
+
       - name: Create DMG
         run: |
           mkdir -p dmg_contents
@@ -52,6 +55,10 @@ jobs:
           # Convert to compressed read-only DMG
           hdiutil convert Yoink_rw.dmg -format UDZO -o Yoink.dmg
           rm Yoink_rw.dmg
+
+          # Set the app icon on the .dmg file itself
+          fileicon set Yoink.dmg \
+            build/Build/Products/Release/YoinkApp.app/Contents/Resources/AppIcon.icns
 
       - name: Create Release
         env:
