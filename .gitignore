@@ -12,7 +12,7 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 
-# Xcode workspace settings (optional, but commonly ignored)
+# Xcode workspace settings
 *.xcworkspace/xcuserdata/
 
 # Archives
