@@ -74,6 +74,3 @@ Yoink is a [Finder Sync Extension](https://developer.apple.com/documentation/fin
 
 The extension uses `UserDefaults` to store the path of the grabbed file and `FileManager` to perform the move operation (copy + delete).
 
-## License
-
-MIT
